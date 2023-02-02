@@ -1,9 +1,9 @@
 function getComputerChoice() {
-    let computerMove = Math.floor(Math.random() * 2);
+    let computerMove = Math.floor(Math.random() * 3);
 
-    if (computerMove = 0) {
+    if (computerMove == 0) {
         return "Rock"
-    } else if (computerMove = 1) {
+    } else if (computerMove == 1) {
         return "Paper"
     } else
         return "Scissors"
@@ -31,24 +31,22 @@ function game() {
     let computer = 0
     let user = 0
 
-    for (let i = 0; i < 5; i++) {
-        if (computer < 3 && user < 3) {
-            let playerSelection = prompt("What is your move?")
-            let computerSelection = getComputerChoice();
-            let result = playRound(playerSelection, computerSelection)
-            if (result === "win") {
-                user++
-            } else if (result == "loss") {
-                computer++
-            }
-        } else {
-            if (computer == 3) {
-                console.log("Computer wins!")
-            } else {
-                console.log("You win!")
-            }
-            break
+    while (computer != 3 && user != 3) {
+        let playerSelection = prompt("What is your move?")
+        let computerSelection = getComputerChoice();
+        let result = playRound(playerSelection, computerSelection)
+        if (result === "win") {
+            user++
+        } else if (result == "loss") {
+            computer++
         }
+        console.log(`Score: User ${user}, Computer ${computer}` )
+    }
+
+    if (computer == 3) {
+        console.log("Computer wins!")
+    } else {
+        console.log("You win!")
     }
 }
 
