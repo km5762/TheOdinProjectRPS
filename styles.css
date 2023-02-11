@@ -43,7 +43,18 @@ h3 {
     font-size: 4vw;
 }
 
-.fade1, .fade2, .fade3, .fade4, .fade5, .fade6, .score {
+.gui img {
+    height: 30vh;
+    margin-top: 8vh;
+}
+
+.gui {
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+}
+
+.fade1, .fade2, .fade3, .fade4, .fade5, .fade6, .fade7 {
     opacity: 0;
     animation: fadeIn 1s forwards;
 }
@@ -68,6 +79,75 @@ h3 {
 100% { opacity: 1; }
 }
 
+@-webkit-keyframes bob-on-hover {
+    0% {
+      -webkit-transform: translateY(-32px);
+      transform: translateY(-32px);
+    }
+    50% {
+      -webkit-transform: translateY(-16px);
+      transform: translateY(-16px);
+    }
+    100% {
+      -webkit-transform: translateY(-32px);
+      transform: translateY(-32px);
+    }
+}
+
+@keyframes bob-on-hover {
+    0% {
+      -webkit-transform: translateY(-32px);
+      transform: translateY(-32px);
+    }
+    50% {
+      -webkit-transform: translateY(-16px);
+      transform: translateY(-16px);
+    }
+    100% {
+      -webkit-transform: translateY(-32px);
+      transform: translateY(-32px);
+    }
+}
+
+@-webkit-keyframes bob-on-hover-float {
+    100% {
+      -webkit-transform: translateY(-32px);
+      transform: translateY(-32px);
+    }
+}
+
+@keyframes bob-on-hover-float {
+    100% {
+      -webkit-transform: translateY(-32px);
+      transform: translateY(-32px);
+    }
+}
+
+.bob-on-hover {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.bob-on-hover:hover, .bob-on-hover:focus, .bob-on-hover:active {
+    -webkit-animation-name: bob-on-hover-float, bob-on-hover;
+    animation-name: bob-on-hover-float, bob-on-hover;
+    -webkit-animation-duration: .3s, 1.5s;
+    animation-duration: .3s, 1.5s;
+    -webkit-animation-delay: 0s, .3s;
+    animation-delay: 0s, .3s;
+    -webkit-animation-timing-function: ease-out, ease-in-out;
+    animation-timing-function: ease-out, ease-in-out;
+    -webkit-animation-iteration-count: 1, infinite;
+    animation-iteration-count: 1, infinite;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-direction: normal, alternate;
+    animation-direction: normal, alternate;
+}
+
 .fade2 {
     animation-delay: 1s;
 }
@@ -84,11 +164,11 @@ h3 {
     animation-delay: 4s;
 }
 
-.fade7 {
+.fade6 {
     animation-delay: 5s;
 }
 
-.score {
+.fade7 {
     animation-delay: 6s;
 }
 
