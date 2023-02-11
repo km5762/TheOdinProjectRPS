@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Bebas Neue', cursive;
+    color: #F5F5F5;
+}
+
+body {
+    background-color: black;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    font-size: 4vw;
+    padding-top: 3vh;
+}
+
+.header img {
+    height: 8vw;
+}
+
+.box, .header h1 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.human, .js {
+    display: flex;
+    flex-direction: column;
+}
+
+.human .score, .js .score {
+    align-self: center;
+}
+
+h3 {
+    font-style: italic;
+    text-align: center;
+    font-size: 4vw;
+}
+
+.fade1, .fade2, .fade3, .fade4, .fade5, .fade6, .score {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+  
+@keyframes fadeIn {
+100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+100% { opacity: 1; }
+}
+
+.fade2 {
+    animation-delay: 1s;
+}
+
+.fade3 {
+    animation-delay: 2s;
+}
+
+.fade4 {
+    animation-delay: 3s;
+}
+
+.fade5 {
+    animation-delay: 4s;
+}
+
+.fade7 {
+    animation-delay: 5s;
+}
+
+.score {
+    animation-delay: 6s;
+}
+
