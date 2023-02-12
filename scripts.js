@@ -1,3 +1,11 @@
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
+const human = document.querySelector('.human .score');
+const js = document.querySelector('.js .score');
+const reportWinner = document.querySelector('h3')
+let gameEnd = false;
+
 function getComputerChoice() {
     let computerMove = Math.floor(Math.random() * 3);
 
@@ -10,54 +18,42 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase()
-    computerSelection = computerSelection.toLowerCase()
+    if (!gameEnd) {
+        playerSelection = playerSelection.toLowerCase();
+        computerSelection = computerSelection.toLowerCase();
 
-    if (playerSelection === computerSelection) {
-        console.log("Tie!")
-        return "tie";
-    } else if (playerSelection === "paper" && computerSelection === "scissors" || 
-        playerSelection === "rock" && computerSelection === "paper" ||
-        playerSelection === "scissors" && computerSelection === "rock") {
-        console.log(`You lose! ${computerSelection} beats ${playerSelection}`)
-        return "loss"
-    } else {
-        console.log(`You win! ${playerSelection} beats ${computerSelection}`)
-        return "win"
-    }
-}
-
-const rock = document.querySelector('.rock');
-const paper = document.querySelector('.paper');
-const scissors = document.querySelector('.scissors');
-const human = document.querySelector('.human .score');
-const js = document.querySelector('.js .score');
-const reportWinner = document.querySelector('h3')
-
-function updateScore(result) {
-    if (human.innerHTML >= 5) {
-        reportWinner.innerHTML = 'You win! :)'
-        reportWinner.setAttribute('style', 'color:green')
-    } else if (js.innerHTML >=  5) {
-        reportWinner.innerHTML = 'You lose! :('
-        reportWinner.setAttribute('style', 'color:red')
-    } else {
-        if (result === 'win') {
-            human.innerHTML++;
-        } else {
+        if (playerSelection === computerSelection) {
+            reportWinner.innerHTML = "Tie!";
+        } else if (playerSelection === "paper" && computerSelection === "scissors" || 
+            playerSelection === "rock" && computerSelection === "paper" ||
+            playerSelection === "scissors" && computerSelection === "rock") {
+            reportWinner.innerHTML = `You lose! ${computerSelection} beats ${playerSelection}`;
             js.innerHTML++;
+        } else {
+            reportWinner.innerHTML = `You win! ${playerSelection} beats ${computerSelection}`;
+            human.innerHTML++;
+        }
+
+        if (human.innerHTML >= 5) {
+            reportWinner.innerHTML = 'You win!!! :)'
+            reportWinner.setAttribute('style', 'color:green')
+            gameEnd = true;
+        } else if (js.innerHTML >= 5) {
+            reportWinner.innerHTML = 'You lose!!! :('
+            reportWinner.setAttribute('style', 'color:red')
+            gameEnd = true;
         }
     }
 }
 
 rock.addEventListener('click', () => {
-    updateScore(playRound('rock', getComputerChoice()));
+    playRound('rock', getComputerChoice());
 });
 
 paper.addEventListener('click', () => {
-    updateScore(playRound('paper', getComputerChoice()));
+    playRound('paper', getComputerChoice());
 });
 
 scissors.addEventListener('click', () => {
-    updateScore(playRound('scissors', getComputerChoice()));
+    playRound('scissors', getComputerChoice());
 });
