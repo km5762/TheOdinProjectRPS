@@ -1,12 +1,17 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Bebas Neue', cursive;
-    color: #F5F5F5;
+    font-family: 'VT323', monospace;
+    color: #45e9ff;
+    text-shadow : 3px 3px 1px #452cd6, 6px 6px 1px #fb37d4;
 }
 
 body {
     background-color: black;
+}
+
+.js img {
+    filter: drop-shadow(6px 6px 2px #fb37d4);
 }
 
 .header {
