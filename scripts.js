@@ -27,29 +27,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    let computer = 0
-    let user = 0
-
-    while (computer != 3 && user != 3) {
-        let playerSelection = prompt("What is your move?")
-        let computerSelection = getComputerChoice();
-        let result = playRound(playerSelection, computerSelection)
-        if (result === "win") {
-            user++
-        } else if (result == "loss") {
-            computer++
-        }
-        console.log(`Score: User ${user}, Computer ${computer}` )
-    }
-
-    if (computer == 3) {
-        console.log("Computer wins!")
-    } else {
-        console.log("You win!")
-    }
-}
-
 const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
