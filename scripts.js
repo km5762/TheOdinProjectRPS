@@ -36,11 +36,11 @@ function playRound(playerSelection, computerSelection) {
 
         if (human.innerHTML >= 5) {
             reportWinner.innerHTML = 'You win!!! :)'
-            reportWinner.setAttribute('style', 'color:green; text-shadow: 5px 5px #0b4f0e;')
+            reportWinner.setAttribute('style', 'color:green; text-shadow: 5px 5px 1px #0b4f0e;')
             gameEnd = true;
         } else if (js.innerHTML >= 5) {
             reportWinner.innerHTML = 'You lose!!! :('
-            reportWinner.setAttribute('style', 'color:red; text-shadow: 5px 5px #7a0707;')
+            reportWinner.setAttribute('style', 'color:red; text-shadow: 5px 5px 1px #7a0707;')
             gameEnd = true;
         }
     }
