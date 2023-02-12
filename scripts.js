@@ -50,4 +50,37 @@ function game() {
     }
 }
 
-game()
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
+const human = document.querySelector('.human .score');
+const js = document.querySelector('.js .score');
+const reportWinner = document.querySelector('h3')
+
+function updateScore(result) {
+    if (human.innerHTML >= 5) {
+        reportWinner.innerHTML = 'You win! :)'
+        reportWinner.setAttribute('style', 'color:green')
+    } else if (js.innerHTML >=  5) {
+        reportWinner.innerHTML = 'You lose! :('
+        reportWinner.setAttribute('style', 'color:red')
+    } else {
+        if (result === 'win') {
+            human.innerHTML++;
+        } else {
+            js.innerHTML++;
+        }
+    }
+}
+
+rock.addEventListener('click', () => {
+    updateScore(playRound('rock', getComputerChoice()));
+});
+
+paper.addEventListener('click', () => {
+    updateScore(playRound('paper', getComputerChoice()));
+});
+
+scissors.addEventListener('click', () => {
+    updateScore(playRound('scissors', getComputerChoice()));
+});
